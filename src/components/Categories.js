@@ -5,6 +5,8 @@ import { Button } from '@material-ui/core';
 function Categories(props) {
   let categoryHTML = [];
 
+  console.log('inside categories.js')
+
   for (let i = 0; i< props.categories.length; i++) categoryHTML.push(
       <Button
         key={i}

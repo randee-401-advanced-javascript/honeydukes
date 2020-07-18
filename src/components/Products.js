@@ -6,6 +6,7 @@ import { Card } from '@material-ui/core';
 // import CardContent from '@material-ui/core/CardContent';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
+import { consoleLog } from '../store/cartReducer';
 
 const useStyles = makeStyles({
   root: {
@@ -35,8 +36,11 @@ function Products(props) {
   function viewDetails(indx){}
 
   let productsHTML = [];
+  console.log('inside products.js props.products', props.products.length);
 
   for (let i = 0; i < props.products.length; i++) {
+    // console.log('props.products.category',props.products[i].category)
+    // console.log('props.currentCatergory', props.currentCategory);
     if (props.products[i].category === props.currentCategory)
       productsHTML.push(
         <Card className='card'>
@@ -49,6 +53,7 @@ function Products(props) {
         </Card>
       );
   }
+  console.log('products.html', productsHTML);
   return (
     <>
         <h3>Sweets</h3>
@@ -60,7 +65,7 @@ function Products(props) {
 }
 
 const mapStateToProps = (state) => ({
-  products: state.products,
+  products: state.products.products,
   currentCategory: state.currentCategory,
 });
 
