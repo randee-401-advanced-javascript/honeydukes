@@ -9,6 +9,7 @@ import Footer from './components/Footer';
 // import CurrentCategory from './components/CurrentCategory';
 import Categories from './components/Categories';
 import Products from './components/Products';
+import Cart from './components/Cart'
 
 import './styles/cards.sass'
 
@@ -20,6 +21,7 @@ function App() {
         <h1>Hello Muggle</h1>
         <Categories />
         <Products />
+        <Cart />
       </div>
     </Provider>
   );

@@ -12,23 +12,28 @@ const initState = {
 
 const reducer = (state = initState, action) => {
   console.log('catergories reducer. Boom.');
-  let newState = { ...state };
+  console.log('categories Reducer state', state)
+  // let newState = { ...state };
 
-  switch (action.type) {
+  const { type, payload } = action;
+
+
+  switch (type) {
     case 'CONSOLE_LOG': 
       console.log('categories');
       break;
     case 'CHANGE_CATEGORY':
-      newState.currentCategory = action.payload;
+      console.log('inside change Category and payload', payload)
+      state.currentCategory = payload;
       break;
     case 'ADD_CATEGORY':
-      newState.categories.push(action.payload);
+      state.categories.push(payload);
       break;
     default:
       break;
   }
 
-  return newState;
+  return state;
 
 };
 
