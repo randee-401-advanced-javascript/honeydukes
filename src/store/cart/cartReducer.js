@@ -6,10 +6,6 @@ const initState = {
 }
 
 const reducer = (state = initState, action) => {
-  console.log('cart reducer was called. boom');
-  console.log('cart reducer action.type', action.type);
-  console.log('cart reducer action.payload', action.payload);
-
   let newState = { ...state }
 
   switch (action.type) {
