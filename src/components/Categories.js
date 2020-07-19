@@ -1,9 +1,14 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { Button } from '@material-ui/core';
+import { consoleLog } from '../store/cartReducer';
 
 function Categories(props) {
+  // console.log('looking for state.categories', props.categories);
+
   let categoryHTML = [];
+
+  // console.log('inside categories.js')
 
   for (let i = 0; i< props.categories.length; i++) categoryHTML.push(
       <Button
@@ -27,7 +32,7 @@ function Categories(props) {
 
 const mapStateToProps = (state) => {
   return {
-    categories: state.categories,
+    categories: state.categories.categories,
   }
 };
 

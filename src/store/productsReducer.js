@@ -1,12 +1,7 @@
-import { createStore } from 'redux';
+
 
 const initState = {
-  cart:0,
-  categories: [
-    { name: 'chocolate', displayName: 'Chocolate'},
-    { name: 'fruit', displayName: 'Fruit'},
-    { name: 'exploding', displayName: 'Exploding'}
-  ],
+
   products: [
     {name: 'Fizzing Whizbees', category: 'exploding', price: '3.50', inStock: 73,},
     {name: 'Peppermint toads', category: 'chocolate', price: '2.50', inStock: 73,},
@@ -18,7 +13,6 @@ const initState = {
     {name: 'Tooth Splintering Strong Mints', category: 'exploding', price: '2.50', inStock: 73,},
     {name: 'Shock-O-Choc', category: 'chocolate', price: '2.50', inStock: 73,}
   ],
-  currentCategory: 'exploding',
   
 };
 
@@ -26,12 +20,11 @@ const reducer = (state = initState, action) => {
   let newState = { ...state };
 
   switch (action.type) {
-    case 'CHANGE_CATEGORY':
-      newState.currentCategory = action.payload;
+    case 'ADD_PRODUCT':
+      newState.allProducts.push(action.payload);
       break;
-    case 'ADD_TO_CART':
-      newState.cart ++;
-      newState.products.inStock --; 
+    case 'CONSOLE_LOG':
+      console.log('Products. Boom.');
       break;
     default: 
       break;
@@ -40,4 +33,4 @@ const reducer = (state = initState, action) => {
   return newState;
 }
 
-export default createStore(reducer)
+export default reducer
