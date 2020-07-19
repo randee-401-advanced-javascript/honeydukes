@@ -32,15 +32,12 @@ function Products(props) {
   const classes = useStyles();
   const bull = <span className={classes.bullet}>•</span>;
 
-  function addToCart(indx){}
-  function viewDetails(indx){}
+  
 
   let productsHTML = [];
-  console.log('inside products.js props.products', props.products.length);
 
   for (let i = 0; i < props.products.length; i++) {
-    console.log('props.products.category',props.products[i].category)
-    console.log('props.currentCatergory', props);
+
     if (props.products[i].category === props.currentCategory)
       productsHTML.push(
         <Card className='card'>
@@ -59,7 +56,6 @@ function Products(props) {
         </Card>
       );
   }
-  console.log('products.html', productsHTML);
   return (
     <>
         <h3>Sweets</h3>

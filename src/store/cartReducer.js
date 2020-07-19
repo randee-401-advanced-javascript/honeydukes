@@ -23,7 +23,7 @@ const reducer = (state = initState, action) => {
 
     case 'REMOVE_FROM_CART':
       newState.cartCount--;
-      
+      console.log('inside remove from cart')
       newState.cartContents = newState.cartContents.filter((val) => {
         return val.name !== action.payload;
       });
