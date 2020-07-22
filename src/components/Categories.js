@@ -10,20 +10,21 @@ console.log('inside cat.js')
 function Categories(props) {
   console.log('looking for state.categories', props);
 
-  console.log('props in cat.js', props)
 
   const {getCat} = props;
-  console.log(getCat());
+
 
   useEffect(() => {
     getCat();
   },[getCat]);
 
+  console.log('cat.js props.cat', props.categoriesList)
+
   let categoryHTML = [];
 
   console.log('inside categories.js props.categories', props.categoriesList)
 
-  for (let i = 0; i <= props.categoriesList.length; i++) categoryHTML.push(
+  for (let i = 0; i < props.categoriesList.length; i++) categoryHTML.push(
       <Button
         key={i}
         variant='contained'
@@ -31,11 +32,11 @@ function Categories(props) {
         onClick={(e) => {
           props.dispatch({
             type: 'CHANGE_CATEGORY',
-            payload: props.categories[i].name,
+            payload: props.categoriesList[i].name,
           });
         }}
         >
-          {props.categories[i].displayName || props.categories[i].name}
+          {props.categoriesList[i].displayName || props.categoriesList[i].name}
       </Button>
     );
     return <>{categoryHTML}</>;
@@ -44,6 +45,8 @@ function Categories(props) {
 
 
 const mapStateToProps = (state) => {
+  //categorieslist is coming in here
+  console.log('state.categories inside mapStateToProps in cat.js', state.categories)
   return {
     categoriesList: state.categories.categoriesList,
   }
