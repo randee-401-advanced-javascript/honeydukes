@@ -2,7 +2,8 @@
 
 const initState = {
 
-  categories: [
+  categoriesList: [
+    {name: 'exploding'}
   ],
   currentCategory: 'exploding',
 };
@@ -15,11 +16,15 @@ const reducer = (state = initState, action) => {
   const { type, payload } = action;
 
   switch (type) {
+    case 'GET_CATEGORY':
+      console.log('insdie cat reducer case GET_CAT payload', payload)
+      return payload; 
     case 'CHANGE_CATEGORY':
       return payload;
     case 'ADD_CATEGORY':
       return payload;
     default:
+      console.log('insdie cat reducer default case')
       break;
   }
 

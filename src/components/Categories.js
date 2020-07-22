@@ -1,18 +1,29 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 import { Button } from '@material-ui/core';
 import axios from 'axios';
 
 import * as actions from '../store/categories/categoriesActions.js'
 
+console.log('inside cat.js')
+
 function Categories(props) {
   console.log('looking for state.categories', props);
 
+  console.log('props in cat.js', props)
+
+  const {getCat} = props;
+  console.log(getCat());
+
+  useEffect(() => {
+    getCat();
+  },[getCat]);
+
   let categoryHTML = [];
 
-  console.log('inside categories.js')
+  console.log('inside categories.js props.categories', props.categoriesList)
 
-  for (let i = 0; i< props.categories.length; i++) categoryHTML.push(
+  for (let i = 0; i <= props.categoriesList.length; i++) categoryHTML.push(
       <Button
         key={i}
         variant='contained'
@@ -34,12 +45,12 @@ function Categories(props) {
 
 const mapStateToProps = (state) => {
   return {
-    categories: state.categories.categories,
+    categoriesList: state.categories.categoriesList,
   }
 };
 
 const mapDispatchToProps = (dispatch, getState) => ({
-  get: data => dispatch ( actions.get(data) ),
+  getCat: data => dispatch(actions.getCat(data)),
 
 })
 

@@ -8,7 +8,7 @@ import Button from '@material-ui/core/Button';
 function Cart(props) {
 
   let thingsToBuy = [];
-  console.log('props.cart', props.cart.cartContents)
+  // console.log('props.cart', props.cart.cartContents)
 
   for (let i = 0; i < props.cart.cartContents.length; i++) {
     thingsToBuy.push(
