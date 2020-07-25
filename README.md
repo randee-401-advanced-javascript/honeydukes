@@ -1,9 +1,9 @@
-# Store 
+# Store lab 33
 
 ## Author: Randee Orion
 
 ## Links:
-[Github Pull Request](https://github.com/randee-401-advanced-javascript/honeydukes/pull/2)
+[Github Pull Request](https://github.com/randee-401-advanced-javascript/honeydukes/pull/3)
 
 
 
