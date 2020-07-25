@@ -1,3 +1,13 @@
+# Store lab 33
+
+## Author: Randee Orion
+
+## Links:
+[Github Pull Request](https://github.com/randee-401-advanced-javascript/honeydukes/pull/4)
+
+
+
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts

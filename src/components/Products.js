@@ -6,6 +6,7 @@ import { Card } from '@material-ui/core';
 // import CardContent from '@material-ui/core/CardContent';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
+// import { consoleLog } from '../store/cartReducer';
 
 const useStyles = makeStyles({
   root: {
@@ -31,19 +32,25 @@ function Products(props) {
   const classes = useStyles();
   const bull = <span className={classes.bullet}>•</span>;
 
-  function addToCart(indx){}
-  function viewDetails(indx){}
+  
 
   let productsHTML = [];
 
   for (let i = 0; i < props.products.length; i++) {
+
     if (props.products[i].category === props.currentCategory)
       productsHTML.push(
         <Card className='card'>
           <Typography className=  {classes.pos} color="textSecondary"key={i}>
             {props.products[i].name}
           </Typography>
-          <Button>
+          <p>${props.products[i].price}</p>
+          <Button onClick={(e) => {
+            props.dispatch({
+              type: 'ADD_TO_CART',
+              payload: props.products[i],
+            })
+          }}>
             Add to Cart
           </Button>
         </Card>
@@ -60,8 +67,9 @@ function Products(props) {
 }
 
 const mapStateToProps = (state) => ({
-  products: state.products,
-  currentCategory: state.currentCategory,
+  products: state.products.products,
+  currentCategory: state.categories.currentCategory,
+  cartCount: state.cart.cartCount
 });
 
 export default connect(mapStateToProps)(Products);
